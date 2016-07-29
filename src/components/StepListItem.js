@@ -35,7 +35,17 @@ StepListItem.propTypes = {
   name: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
   selected: PropTypes.bool.isRequired,
-  onSelect: PropTypes.func.isRequired
+  visible: PropTypes.bool,
+  first: PropTypes.bool,
+  last: PropTypes.bool,
+  onSelect: PropTypes.func.isRequired,
+
+};
+
+StepListItem.defaultProps = {
+  visible: false,
+  first: false,
+  last: false
 };
 
 export default StepListItem;
