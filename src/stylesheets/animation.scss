@@ -1,0 +1,266 @@
+// Animations for React-Animation-Group
+// -------------------------------------
+
+// Placeholder to show the leaving content
+// while the one entering is animated
+%rag-fluid {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    right: 0;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.rag-fadeIn-enter {
+    @include animation(fadeIn $animate-duration);
+}
+.rag-fadeIn-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOut $animate-duration);
+}
+
+.rag-fadeInUp-enter {
+    @include animation(fadeInUp $animate-duration);
+}
+.rag-fadeInUp-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOutDown $animate-duration);
+}
+
+.rag-fadeInDown-enter {
+    @include animation(fadeInDown $animate-duration);
+}
+.rag-fadeInDown-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOutUp $animate-duration);
+}
+
+.rag-fadeInRight-enter {
+    @include animation(fadeInRight $animate-duration);
+}
+.rag-fadeInRight-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOutLeft $animate-duration);
+}
+
+.rag-fadeInLeft-enter {
+    @include animation(fadeInLeft $animate-duration);
+}
+.rag-fadeInLeft-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOutRight $animate-duration);
+}
+
+.rag-fadeInUpBig-enter {
+    @include animation(fadeInDownBig $animate-duration);
+}
+.rag-fadeInUpBig-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOutDownBig $animate-duration);
+}
+
+.rag-fadeInDownBig-enter {
+    @include animation(fadeInUpBig $animate-duration);
+}
+.rag-fadeInDownBig-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOutUpBig $animate-duration);
+}
+
+.rag-fadeInRightBig-enter {
+    @include animation(fadeInRightBig $animate-duration);
+}
+.rag-fadeInRightBig-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOutLeftBig $animate-duration);
+}
+
+.rag-fadeInLeftBig-enter {
+    @include animation(fadeInLeftBig $animate-duration);
+}
+.rag-fadeInLeftBig-leave {
+    @extend %rag-fluid;
+    @include animation(fadeOutRightBig $animate-duration);
+}
+
+.rag-zoomBackDown-enter {
+    @include animation(fadeInDown 1s $easeOutQuint);
+}
+.rag-zoomBackDown-leave {
+    @extend %rag-fluid;
+    @include animation(zoomBack 1s $easeOutQuint);
+}
+
+// New Animations
+// -----------------------------------
+
+@-webkit-keyframes fadeOutUpShort {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+}
+
+@keyframes fadeOutUpShort {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -20px, 0);
+    -ms-transform: translate3d(0, -20px, 0);
+    transform: translate3d(0, -20px, 0);
+  }
+}
+
+.fadeOutUpShort {
+  -webkit-animation-name: fadeOutUpShort;
+  animation-name: fadeOutUpShort;
+}
+
+@-webkit-keyframes fadeInUpShort {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUpShort {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 20px, 0);
+    -ms-transform: translate3d(0, 20px, 0);
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUpShort {
+  -webkit-animation-name: fadeInUpShort;
+  animation-name: fadeInUpShort;
+}
+
+
+@-webkit-keyframes zoomInShort {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.95, .95, .95);
+    transform: scale3d(.95, .95, .95);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomInShort {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(.95, .95, .95);
+    -ms-transform: scale3d(.95, .95, .95);
+    transform: scale3d(.95, .95, .95);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomInShort {
+  -webkit-animation-name: zoomInShort;
+  animation-name: zoomInShort;
+}
+
+@-webkit-keyframes zoomBack {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(.5, .5, .5);
+    transform: scale3d(.5, .5, .5);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes zoomBack {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+    -webkit-transform: scale3d(.5, .5, .5);
+    -ms-transform: scale3d(.5, .5, .5);
+    transform: scale3d(.5, .5, .5);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.zoomBack {
+  -webkit-animation-name: zoomBack;
+  animation-name: zoomBack;
+}
+
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(-20px, 0, 0);
+    -ms-transform: translate3d(-20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+}

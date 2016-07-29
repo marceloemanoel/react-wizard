@@ -1,0 +1,192 @@
+@import 'variables';
+@import 'mixins';
+@import 'animation';
+
+.wizard {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
+  a {
+    outline: 0;
+  }
+
+  ul {
+    list-style: none !important;
+    padding: 0;
+    margin: 0;
+
+    >li {
+      display: block;
+      padding: 0;
+    }
+  }
+
+  &> .steps {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+
+    .current-info {
+      position: absolute;
+      left: -999em;
+    }
+
+    .current {
+      .number {
+        color: #fff;
+      }
+    }
+
+    .error {
+      a, a:hover, a:active {
+        background: #ff3111;
+        color: #fff;
+      }
+    }
+
+    .number {
+      font-size: 1.429em;
+    }
+
+    ul {
+      width: 5000px;
+      position: relative;
+    }
+  }
+
+  &> .content {
+    background: #fff;
+    display: block;
+    margin: 0.5em;
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
+    width: auto;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  &> .actions {
+    position: relative;
+    display: block;
+    text-align: right;
+    border-top: 1px dashed #eee;
+    padding-top: 10px;
+    width: 100%;
+
+    a, a:hover, a:active {
+      display: inline-block;
+      padding: 6px 16px;
+      font-size: 13px;
+      border-radius: $border-radius-small;
+      text-decoration: none;
+      cursor: default;
+      @include button-variant(#fff, $wizard-primary-color, $wizard-primary-color);
+    }
+
+    .disabled {
+      a, a:hover, a:active {
+        color: $btn-default-color;
+        background: $btn-default-bg;
+        border: 1px solid $btn-default-border;
+      }
+    }
+
+    &> ul {
+      display: inline-block;
+      text-align: right;
+
+      &> li {
+          margin: 0 0.5em;
+      }
+    }
+  }
+
+  &.vertical {
+  &> .steps {
+    display: inline;
+    float: left;
+    width: 30%;
+
+    &> ul {
+      &> li {
+        float: left;
+        width: 100%;
+      }
+    }
+
+    a, a:hover, a:active {
+      display: block;
+      width: auto;
+      margin: 0 0.5em 0.5em;
+      padding: 1em 1em;
+      text-decoration: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 0;
+      font-weight: bold;
+      color: $wizard-heading-color;
+
+      > small {
+        font-weight: normal;
+        color: $wizard-subheading-color;
+      }
+    }
+
+    .number,
+    .number:hover,
+    .number:active {
+      color: $wizard-heading-color;
+      cursor: default;
+    }
+
+    .disabled {
+      a, a:hover, a:active {
+        background: $wizard-steps-bg;
+        color: $wizard-subheading-color;
+        cursor: pointer;
+      }
+    }
+
+    .current {
+      a, a:hover, a:active {
+        background: $wizard-primary-color;
+        color: #fff;
+        cursor: default;
+      }
+    }
+
+    .done {
+      a, a:hover, a:active {
+        background: $wizard-steps-bg;
+        color: $wizard-heading-color;
+      }
+    }
+  }
+
+  &> .content {
+    display: inline;
+    float: left;
+    margin: 0 2.5% 0.5em 2.5%;
+    width: 65%;
+  }
+
+  &> .actions {
+    display: inline;
+    float: right;
+    margin: 0 2.5%;
+    width: 95%;
+
+    &> ul {
+      &> li {
+        float: left;
+        margin: 0 0 0 1em;
+      }
+    }
+  }
+}
+
+}
