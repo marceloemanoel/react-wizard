@@ -18,7 +18,7 @@ export default {
     path: __dirname + '/lib',
     publicPath: '/',
     filename: 'react-wizard.min.js',
-    library: 'react_wizard',
+    library: 'react-wizard',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
@@ -28,7 +28,7 @@ export default {
         root: 'React',
         commonjs2: 'react',
         commonjs: 'react',
-        amd: 'react',
+        amd: 'react'
       },
     },
     {
@@ -36,9 +36,17 @@ export default {
         root: 'ReactDOM',
         commonjs2: 'react-dom',
         commonjs: 'react-dom',
-        amd: 'react-dom',
+        amd: 'react-dom'
       },
     },
+    {
+      'react-addons-css-transition-group': {
+        root: 'ReactCSSTransitionGroup',
+        commonjs: 'react-addons-css-transition-group',
+        commonjs2: 'react-addons-css-transition-group',
+        amd: 'react-addons-css-transition-group'
+      }
+    }
   ],
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
