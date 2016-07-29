@@ -126,6 +126,4 @@ Wizard.defaultProps = {
   onFinish: () => {}
 };
 
-Wizard.Step = Step;
-
 export default Wizard;

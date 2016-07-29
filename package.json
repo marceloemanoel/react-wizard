@@ -13,7 +13,7 @@
     "clean": "npm-run-all remove-lib create-lib remove-package",
     "remove-lib": "rm -rf ./lib",
     "create-lib": "mkdir ./lib",
-    "remove-package": "rm -rf react-wizard-0.0.1.tgz",
+    "remove-package": "rm -rf ./*.tgz",
     "prebuild": "npm-run-all clean test lint",
     "build": "babel-node tools/build.js",
     "postbuild": "npm pack"
@@ -36,6 +36,7 @@
     "babel-cli": "^6.10.1",
     "babel-core": "^6.10.4",
     "babel-loader": "^6.2.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-display-name": "^2.0.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
