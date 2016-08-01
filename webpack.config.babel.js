@@ -2,6 +2,10 @@ import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+const isProduction = process.env.WEBPACK_ENV === 'production';
+const libraryName = "react-wizard";
+const moduleName = `${libraryName}${isProduction ? '.min' : ''}`;
+
 export default {
   debug: true,
   devtool: 'source-map',
@@ -10,8 +14,8 @@ export default {
   output: {
     path: __dirname + '/lib',
     publicPath: '/',
-    filename: 'react-wizard.min.js',
-    library: 'react-wizard',
+    filename: `${moduleName}.js`,
+    library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
@@ -43,9 +47,9 @@ export default {
   ],
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new ExtractTextPlugin('react-wizard.min.css'),
+    new ExtractTextPlugin(`${moduleName}.css`),
     new webpack.optimize.DedupePlugin(),
-    // new webpack.optimize.UglifyJsPlugin({minimize: false })
+    new webpack.optimize.UglifyJsPlugin({minimize: false })
   ],
   module: {
     loaders: [

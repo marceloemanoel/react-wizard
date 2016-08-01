@@ -1,6 +1,6 @@
 /*eslint-disable no-console*/
 import webpack from 'webpack';
-import webpackConfig from '../webpack.config';
+import webpackConfig from '../webpack.config.babel';
 import colors from 'colors';
 
 console.log("Generating minified bundle for production via Webpack. This will take a moment...".blue);
