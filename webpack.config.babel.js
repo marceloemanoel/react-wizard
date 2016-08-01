@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const isProduction = process.env.WEBPACK_ENV === 'production';
 const libraryName = "react-wizard";
@@ -10,7 +11,10 @@ export default {
   debug: true,
   devtool: 'source-map',
   noInfo: false,
-  entry: './src/index',
+  entry: [
+    './src/index',
+    './src/stylesheets/wizard.scss'
+  ],
   output: {
     path: __dirname + '/lib',
     publicPath: '/',
@@ -49,12 +53,13 @@ export default {
     new webpack.optimize.OccurenceOrderPlugin(),
     new ExtractTextPlugin(`${moduleName}.css`),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({minimize: false })
+    new webpack.optimize.UglifyJsPlugin({minimize: true }),
+    new CopyWebpackPlugin([{ from: "./src/stylesheets", to: "scss" }])
   ],
   module: {
     loaders: [
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
-      {test: /\.(scss|css)$/, loader: ExtractTextPlugin.extract("css-loader", ["css","sass"])}
+      {test: /\.scss$/, loader: ExtractTextPlugin.extract("style", ["css","sass"])}
     ]
   }
 };
